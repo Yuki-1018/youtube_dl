@@ -1,5 +1,5 @@
 from flask import Flask, request, send_file
-import youtube_dl
+import yt_dlp
 import os
 
 app = Flask(__name__)
@@ -18,7 +18,7 @@ def home():
             'quiet': True
         }
 
-        with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+        with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info_dict = ydl.extract_info(youtube_url, download=False)
             video_url = info_dict.get('url', None)
             if not video_url:
