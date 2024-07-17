@@ -1,2 +1,2 @@
 Flask
-youtube_dl
+yt-dlp
